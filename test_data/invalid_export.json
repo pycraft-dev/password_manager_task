@@ -1,0 +1,7 @@
+{
+  "format": "password_manager_encrypted_v1",
+  "version": 1,
+  "salt_b64": "AAAA",
+  "iterations": 100000,
+  "ciphertext_b64": "BBBB"
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Демо: Почта",
+    "login": "demo.user@example.com",
+    "password": "DemoPass-2026!",
+    "notes": "Синтетические данные для проверки интерфейса.",
+    "attachment_path": "",
+    "created_at": "2026-04-19T10:00:00+00:00",
+    "updated_at": "2026-04-19T10:00:00+00:00"
+  },
+  {
+    "title": "Демо: Форум",
+    "login": "forum_user",
+    "password": "Str0ng#Pwd",
+    "notes": "Кириллица в заметках — ок.",
+    "attachment_path": "",
+    "created_at": "2026-04-19T10:05:00+00:00",
+    "updated_at": "2026-04-19T10:05:00+00:00"
+  },
+  {
+    "title": "Demo: GitHub",
+    "login": "devaccount",
+    "password": "ghp_EXAMPLE_ONLY",
+    "notes": "Токен вымышленный.",
+    "attachment_path": "",
+    "created_at": "2026-04-19T10:10:00+00:00",
+    "updated_at": "2026-04-19T10:10:00+00:00"
+  },
+  {
+    "title": "Demo: Cloud",
+    "login": "cloud_admin",
+    "password": "Cloud!234",
+    "notes": "",
+    "attachment_path": "",
+    "created_at": "2026-04-19T10:12:00+00:00",
+    "updated_at": "2026-04-19T10:12:00+00:00"
+  },
+  {
+    "title": "Демо: Магазин",
+    "login": "+79990000000",
+    "password": "shop-secret",
+    "notes": "Телефон вымышленный.",
+    "attachment_path": "",
+    "created_at": "2026-04-19T10:15:00+00:00",
+    "updated_at": "2026-04-19T10:15:00+00:00"
+  }
+]

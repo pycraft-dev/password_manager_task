@@ -1,0 +1,7 @@
+{
+  "format": "password_manager_encrypted_v1",
+  "version": 1,
+  "salt_b64": "7XxFyb8mi6zamiT4T4NgdA==",
+  "iterations": 390000,
+  "ciphertext_b64": "EYobzmEQjAFckJN0OICHv9hMX30XYWhgdh/FL+cHQM5y4Q1HlCshOdK46PJJQb0n9+QbNGk4zkZPY/bfwkuUL7sK2nBIySUah8pBkgQb1UQQY29wS9Sje+Wa/8PBQL2zkFbzj1OhtfjH48FGfaZO2LKvNiR91gRTDA2mfLu0dd8P+HkNMRo0/ozpbmd/i68AO1z7eHcaeMRAQhOLs+flrcvDIrkFhqP6H7QPWX/0HjhJDfWJBrpTdV2BNoykIzNsRpq+gWR6aBczmFlybcZjMjSodZkDSigIsn9MSCZF1MAKuWcBN3NrsHrE6ilXQ8Z4lCusoOj1ww3Xa4N/b6YXzOdFqHYCmvkLXKc2AJEExyTs5qXgld5Me0ADgg3wqzRBqblPVDCM2lCztlt2sKaloyGMC+Hd94O3l2McR0k6buXv65/Kr6mRw08KEg53UIzQiw71TKuZSbF0LvP0Jy+bpyTFfneQhf/HpC8NqqCkdVYHu18MbiOTQ6LnfHc9ilH5Q5G6ARn/XAahKec9UghRT34cxadNyfiBFIfhh50nDcL1QbJ4g9oTd7faR6KMZICKH4Z7Ja0="
+}
