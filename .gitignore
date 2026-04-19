@@ -31,7 +31,6 @@ release/
 # Логи и локальные БД приложения
 *.log
 encrypted.db
-*.db
 
 # PyInstaller / кэш
 *.manifest
