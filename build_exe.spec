@@ -1,5 +1,5 @@
 # -*- mode: python ; coding: utf-8 -*-
-"""PyInstaller spec для демо менеджера паролей."""
+"""PyInstaller spec для менеджера паролей (Windows)."""
 
 from pathlib import Path
 
@@ -37,7 +37,7 @@ exe = EXE(
     a.zipfiles,
     a.datas,
     [],
-    name="PasswordManagerDemo",
+    name="PasswordManager",
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

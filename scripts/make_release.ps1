@@ -12,11 +12,11 @@ if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 $releaseDir = Join-Path $Root "release"
 New-Item -ItemType Directory -Force -Path $releaseDir | Out-Null
-$zipName = "PasswordManagerDemo-${ver}-win64.zip"
+$zipName = "PasswordManager-${ver}-win64.zip"
 $zipPath = Join-Path $releaseDir $zipName
 if (Test-Path $zipPath) { Remove-Item $zipPath -Force }
 
-$exe = Join-Path $Root "dist\PasswordManagerDemo.exe"
+$exe = Join-Path $Root "dist\PasswordManager.exe"
 if (-not (Test-Path $exe)) {
     Write-Error "Missing: $exe"
     exit 1

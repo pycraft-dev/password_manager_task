@@ -1,5 +1,5 @@
 {
-  "app_title": { "ru": "Менеджер паролей (демо)", "en": "Password Manager (demo)" },
+  "app_title": { "ru": "Менеджер паролей", "en": "Password Manager" },
   "login_heading": { "ru": "Мастер-пароль", "en": "Master password" },
   "login_hint_new": { "ru": "Создайте мастер-пароль для нового хранилища (минимум 8 символов).", "en": "Create a master password for a new vault (min 8 characters)." },
   "login_hint_open": { "ru": "Введите мастер-пароль для открытия хранилища.", "en": "Enter your master password to unlock the vault." },

@@ -1,8 +1,8 @@
-# Локальный менеджер паролей (демо)
+# Локальный менеджер паролей
 
-Десктопное приложение на **CustomTkinter** с шифрованием **AES-256-GCM**, хранением в **SQLite** и экспортом/импортом зашифрованного **JSON**. Подходит для демонстрации на Kwork: один экран, тёмная тема, генератор паролей, локализация **RU/EN**.
+Десктопное приложение на **CustomTkinter** с шифрованием **AES-256-GCM**, хранением в **SQLite** и экспортом/импортом зашифрованного **JSON**. Один экран, тёмная тема, генератор паролей, локализация **RU/EN**.
 
-## Скриншоты / демо
+## Скриншоты
 
 Файлы лежат в [docs/screenshots/](docs/screenshots/).
 
@@ -21,11 +21,11 @@
 <details>
 <summary>English version</summary>
 
-# Local password manager (demo)
+# Local password manager
 
 A **CustomTkinter** desktop app with **AES-256-GCM** encryption, **SQLite** storage, and encrypted **JSON** export/import. Single-window UI, dark theme, password generator, **RU/EN** localization.
 
-## Screenshots / demo
+## Screenshots
 
 ![Login](docs/screenshots/01-login.png)
 
@@ -66,7 +66,7 @@ pip install pyinstaller
 pyinstaller build_exe.spec --noconfirm
 ```
 
-Готовый файл: `dist/PasswordManagerDemo.exe`. Иконка и `translations.json` включаются через секцию `datas` в [build_exe.spec](build_exe.spec).
+Готовый файл: `dist/PasswordManager.exe`. Иконка и `translations.json` включаются через секцию `datas` в [build_exe.spec](build_exe.spec).
 
 ### Релиз (архив для клиента)
 
@@ -78,7 +78,7 @@ pyinstaller build_exe.spec --noconfirm
 .\scripts\make_release.ps1
 ```
 
-Архив появится в `release/PasswordManagerDemo-<версия>-win64.zip`. Папка **`release/`** не коммитится в Git (см. `.gitignore`) — ZIP загружайте вручную в [GitHub Releases](https://docs.github.com/repositories/releasing-projects-on-github/about-releases) или отдельно клиенту.
+Архив появится в `release/PasswordManager-<версия>-win64.zip`. Папка **`release/`** не коммитится в Git (см. `.gitignore`) — ZIP загружайте вручную в [GitHub Releases](https://docs.github.com/repositories/releasing-projects-on-github/about-releases) или отдельно клиенту.
 
 ### Публикация на GitHub
 
@@ -97,13 +97,13 @@ pyinstaller build_exe.spec --noconfirm
 ### Безопасность (важно)
 
 - Мастер-пароль **не хранится** на диске; из него выводится ключ **PBKDF2-HMAC-SHA256** (число итераций задаётся в `.env`, по умолчанию `390000`).
-- Поля логина, пароля, заметок и пути вложения хранятся в SQLite в виде **зашифрованного blob** на запись. Название записи хранится **открытым текстом** для быстрого поиска (демо-ограничение).
+- Поля логина, пароля, заметок и пути вложения хранятся в SQLite в виде **зашифрованного blob** на запись. Название записи хранится **открытым текстом** для быстрого поиска (ограничение текущей версии).
 - Экспорт — отдельный JSON, зашифрованный тем же мастер-паролем и **солью файла**; без пароля содержимое не прочитать.
 - Демо не заменяет специализированные менеджеры паролей уровня продакшена; не храните реальные боевые секреты без отдельной оценки рисков.
 
 ### Автозапуск
 
-Штатного автозапуска нет. Для автозапуска в Windows можно создать ярлык в папке «Автозагрузка» на `PasswordManagerDemo.exe`.
+Штатного автозапуска нет. Для автозапуска в Windows можно создать ярлык в папке «Автозагрузка» на `PasswordManager.exe`.
 
 ## Архитектура
 

@@ -2,6 +2,12 @@
 
 Формат основан на [Keep a Changelog](https://keepachangelog.com/ru/1.0.0/).
 
+## [1.0.1] — 2026-04-19
+
+### Изменено
+
+- Название приложения без пометки «демо»; EXE и архив релиза: `PasswordManager.exe` / `PasswordManager-<версия>-win64.zip`.
+
 ## [1.0.0] — 2026-04-19
 
 ### Добавлено
@@ -21,6 +27,12 @@
 - Горячие клавиши буфера: модуль `clipboard_bindings` (Ctrl/Cmd+A,C,V,X, Shift+Insert, русская раскладка).
 
 ---
+
+## [1.0.1] — 2026-04-19 (EN)
+
+### Changed
+
+- Product name without “demo”; Windows binary `PasswordManager.exe`; release zip `PasswordManager-<version>-win64.zip`.
 
 ## [1.0.0] — 2026-04-19 (EN)
 
