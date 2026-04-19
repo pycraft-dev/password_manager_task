@@ -1,6 +1,6 @@
 # Локальный менеджер паролей
 
-Десктопное приложение на **CustomTkinter** с шифрованием **AES-256-GCM**, хранением в **SQLite** и экспортом/импортом зашифрованного **JSON**. Один экран, тёмная тема, генератор паролей, локализация **RU/EN**.
+Десктопное приложение на **CustomTkinter** с шифрованием **AES-256-GCM**, хранением в **SQLite**, экспортом/импортом зашифрованного **JSON** и **импортом паролей из CSV** (экспорт Chrome / Яндекс.Браузер / Edge / Opera / Firefox). Один экран, тёмная тема, генератор паролей, локализация **RU/EN**.
 
 ## Скриншоты
 
@@ -23,7 +23,7 @@
 
 # Local password manager
 
-A **CustomTkinter** desktop app with **AES-256-GCM** encryption, **SQLite** storage, and encrypted **JSON** export/import. Single-window UI, dark theme, password generator, **RU/EN** localization.
+A **CustomTkinter** desktop app with **AES-256-GCM** encryption, **SQLite** storage, encrypted **JSON** export/import, and **CSV import** from browser password exports (Chrome / Yandex Browser / Edge / Opera / Firefox). Single-window UI, dark theme, password generator, **RU/EN** localization.
 
 ## Screenshots
 
@@ -78,7 +78,7 @@ pyinstaller build_exe.spec --noconfirm
 .\scripts\make_release.ps1
 ```
 
-Архив появится в `release/PasswordManager-<версия>-win64.zip`. Папка **`release/`** не коммитится в Git (см. `.gitignore`) — ZIP загружайте вручную в [GitHub Releases](https://docs.github.com/repositories/releasing-projects-on-github/about-releases) или отдельно клиенту.
+Архив появится в `release/PasswordManager-v<версия>-win64.zip`. Папка **`release/`** не коммитится в Git (см. `.gitignore`) — ZIP загружайте вручную в [GitHub Releases](https://docs.github.com/repositories/releasing-projects-on-github/about-releases) или отдельно клиенту.
 
 ### Публикация на GitHub
 
@@ -93,6 +93,33 @@ pyinstaller build_exe.spec --noconfirm
 
 - **Инструкция для пользователя:** [README_КЛИЕНТУ.md](README_КЛИЕНТУ.md)  
 - **Тестовые данные:** [test_data/README.md](test_data/README.md)  
+
+## Импорт из браузера (CSV)
+
+1. Экспортируйте пароли из браузера в CSV (например, **Chrome:** «Настройки» → «Автозаполнение и пароли» → «Пароли Google» → меню «⋮» → **Экспорт паролей**).  
+2. В приложении: **«Импорт из браузера»** → выберите тип браузера (формат CSV) → **«Обзор»** → укажите файл **.csv** или **.zip** (если браузер выдал архив с паролем — введите пароль ZIP и нажмите **«Открыть ZIP»**).  
+3. Проверьте таблицу предпросмотра, при необходимости отфильтруйте **только новые** или **дубликаты**, снимите лишние галочки.  
+4. Нажмите **«Импортировать выбранные»** или **«Импортировать все»**. Во время импорта доступны **прогресс** и кнопка **«Стоп»** (оставшиеся строки не добавляются).  
+5. **Удалите CSV** с диска после импорта; файл приложением не сохраняется. Содержимое паролей в лог не пишется.
+
+Для **ZIP** сначала используется стандартный модуль Python ``zipfile`` (часто хватает для экспорта Яндекс.Браузера и ZipCrypto). Если архив в формате **AES** и появится подсказка установить **pyzipper**, выполните ``pip install pyzipper`` (пакет уже указан в ``requirements.txt`` для сборки EXE).
+
+**Форматы:** Chrome, **Яндекс.Браузер**, Edge и Opera — CSV Chromium (`name`, `url`, `username`, `password`); Firefox — колонки `url`, `username`, `password` (как в экспорте). Дубликаты определяются по **названию записи** (без учёта регистра), совпадающему с уже существующими в хранилище.
+
+<details>
+<summary>English: Browser CSV import</summary>
+
+1. Export passwords to CSV from your browser (e.g. **Chrome:** Settings → Autofill and passwords → Google Passwords → ⋮ → **Export passwords**).  
+2. In the app: **Import from browser** → pick the browser/format → **Browse** → select a **.csv** or **.zip** (if the browser exported a password-protected archive, enter the ZIP password and click **Open ZIP**).  
+3. Review the preview table; use filters (**All / New only / Duplicates**) and row checkboxes.  
+4. **Import selected** or **Import all**; use **Stop** to cancel the remaining rows.  
+5. Delete the CSV after import; the app does not store it and does not log password contents.
+
+For **ZIP**, the app tries Python’s built-in ``zipfile`` first (often enough for Yandex Browser / ZipCrypto). If the UI asks to install **pyzipper** (AES archives), run ``pip install pyzipper`` (listed in ``requirements.txt`` for the EXE build).
+
+**Formats:** Chromium family (Chrome / Yandex Browser / Edge / Opera) uses `name,url,username,password`; Firefox uses `url,username,password`. Duplicates match existing entry **titles** case-insensitively.
+
+</details>
 
 ### Безопасность (важно)
 
@@ -114,9 +141,9 @@ password_manager_task/
 ├── assets/                 # иконки
 ├── src/
 │   ├── config/             # настройки и константы
-│   ├── core/               # шифрование, БД, генератор, экспорт/импорт
-│   ├── ui/                 # окна и компоненты
-│   └── utils/              # пути, буфер обмена, i18n
+│   ├── core/               # шифрование, БД, генератор, экспорт/импорт, импорт CSV
+│   ├── ui/                 # окна, форма записи, панель импорта из браузера
+│   └── utils/              # пути, парсинг CSV/ZIP, валидация, буфер обмена, i18n
 ├── test_data/              # примеры для ручных сценариев
 ├── tests/                  # pytest
 └── translations.json       # строки RU/EN

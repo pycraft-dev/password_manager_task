@@ -14,6 +14,7 @@
   "btn_search": { "ru": "Поиск", "en": "Search" },
   "btn_export": { "ru": "Экспорт", "en": "Export" },
   "btn_import": { "ru": "Импорт", "en": "Import" },
+  "btn_browser_import": { "ru": "Импорт из браузера", "en": "Import from browser" },
   "search_placeholder": { "ru": "Название…", "en": "Title…" },
   "records": { "ru": "Записей", "en": "Entries" },
   "last_sync": { "ru": "Последнее сохранение", "en": "Last saved" },
@@ -48,5 +49,54 @@
   "saved": { "ru": "Сохранено.", "en": "Saved." },
   "deleted": { "ru": "Удалено.", "en": "Deleted." },
   "clipboard_ok": { "ru": "Пароль скопирован.", "en": "Password copied." },
-  "empty_title": { "ru": "Укажите название.", "en": "Please enter a title." }
+  "empty_title": { "ru": "Укажите название.", "en": "Please enter a title." },
+  "browser_import_warning": {
+    "ru": "Пароли в браузере менее защищены, чем в отдельном менеджере. После импорта удалите CSV или ZIP с экспортом и отключите хранение паролей в браузере, если не нужно. Файлы экспорта приложение не сохраняет; пароли архива и CSV в логи не пишутся.",
+    "en": "Browser password storage is weaker than a dedicated vault. After import, delete the exported CSV or ZIP and turn off browser password saving if you do not need it. The app does not keep export files; archive and CSV passwords are not written to logs."
+  },
+  "browser_chrome": { "ru": "Google Chrome", "en": "Google Chrome" },
+  "browser_yandex": { "ru": "Яндекс.Браузер", "en": "Yandex Browser" },
+  "browser_edge": { "ru": "Microsoft Edge", "en": "Microsoft Edge" },
+  "browser_opera": { "ru": "Opera", "en": "Opera" },
+  "browser_firefox": { "ru": "Mozilla Firefox", "en": "Mozilla Firefox" },
+  "import_filter": { "ru": "Фильтр", "en": "Filter" },
+  "filter_all": { "ru": "Все строки", "en": "All rows" },
+  "filter_new_only": { "ru": "Только новые", "en": "New only" },
+  "filter_duplicates": { "ru": "Дубликаты", "en": "Duplicates" },
+  "import_show_passwords": { "ru": "Показать пароли", "en": "Show passwords" },
+  "import_select_all": { "ru": "Выбрать все", "en": "Select all" },
+  "import_select_none": { "ru": "Снять выбор", "en": "Clear selection" },
+  "import_selected": { "ru": "Импортировать выбранные", "en": "Import selected" },
+  "import_all": { "ru": "Импортировать все", "en": "Import all" },
+  "import_stop": { "ru": "Стоп", "en": "Stop" },
+  "import_file_missing": { "ru": "Файл не найден.", "en": "File not found." },
+  "import_parse_error": { "ru": "Не удалось прочитать CSV: {err}", "en": "Could not parse CSV: {err}" },
+  "import_none_selected": { "ru": "Отметьте хотя бы одну запись.", "en": "Select at least one row." },
+  "import_progress_start": { "ru": "Импорт…", "en": "Importing…" },
+  "import_progress_fmt": { "ru": "Прогресс: {n} / {total}", "en": "Progress: {n} / {total}" },
+  "import_result_log": {
+    "ru": "Готово: добавлено {i}, дубликатов пропущено {d}, с ошибками {e}.",
+    "en": "Done: added {i}, duplicates skipped {d}, invalid skipped {e}."
+  },
+  "import_cancelling": { "ru": "Запрошена остановка…", "en": "Stopping…" },
+  "browser_import_done": {
+    "ru": "Импорт из браузера: добавлено {i}, дубликатов пропущено {d}, с ошибками {e}.",
+    "en": "Browser import: added {i}, duplicates skipped {d}, invalid skipped {e}."
+  },
+  "import_badge_invalid": { "ru": "ошибка", "en": "invalid" },
+  "import_badge_dup_db": { "ru": "в базе", "en": "in vault" },
+  "import_badge_dup_file": { "ru": "в файле", "en": "in file" },
+  "import_zip_hint": {
+    "ru": "Если выбран ZIP: введите пароль архива (если браузер задал при экспорте) и нажмите «Открыть ZIP». Для незашифрованного архива оставьте поле пустым.",
+    "en": "If you picked a ZIP: enter the archive password (if the browser set one on export) and click \"Open ZIP\". Leave the field empty for an unencrypted archive."
+  },
+  "import_zip_password": { "ru": "Пароль ZIP-архива", "en": "ZIP archive password" },
+  "import_open_zip": { "ru": "Открыть ZIP", "en": "Open ZIP" },
+  "zip_no_csv": { "ru": "В архиве не найден CSV-файл.", "en": "No CSV file found in the archive." },
+  "zip_bad_password": { "ru": "Неверный пароль архива или неподдерживаемое шифрование.", "en": "Wrong archive password or unsupported encryption." },
+  "zip_read_error": { "ru": "Не удалось прочитать ZIP (повреждённый файл?).", "en": "Could not read the ZIP (corrupted file?)." },
+  "zip_install_pyzipper": {
+    "ru": "Для этого архива нужен пакет pyzipper. Выполните в каталоге проекта: pip install pyzipper",
+    "en": "This archive needs the pyzipper package. Run: pip install pyzipper"
+  }
 }

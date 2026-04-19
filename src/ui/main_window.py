@@ -22,6 +22,7 @@ from src.config.settings import Settings
 from src.core.database import EntryRecord, PasswordDatabase
 from src.core.export_import import export_encrypted_file, import_encrypted_file
 from src.ui.components import enable_clipboard, make_scrollable
+from src.ui.import_window import BrowserImportPanel
 from src.ui.record_form import RecordForm
 from src.utils.i18n import Translator
 
@@ -148,7 +149,15 @@ class MainWindow(ctk.CTkFrame):
             fg_color=COLOR_ACCENT,
             width=100,
         )
-        self._btn_import.pack(side="left")
+        self._btn_import.pack(side="left", padx=(0, 6))
+        self._btn_browser_import = ctk.CTkButton(
+            toolbar,
+            text=self._tr.t("btn_browser_import"),
+            command=self._browser_import,
+            fg_color=COLOR_ACCENT,
+            width=150,
+        )
+        self._btn_browser_import.pack(side="left")
 
         self._body = ctk.CTkFrame(self._scroll, fg_color="transparent")
         self._body.pack(fill="both", expand=True)
@@ -233,12 +242,16 @@ class MainWindow(ctk.CTkFrame):
         self._btn_search.configure(text=self._tr.t("btn_search"))
         self._btn_export.configure(text=self._tr.t("btn_export"))
         self._btn_import.configure(text=self._tr.t("btn_import"))
+        self._btn_browser_import.configure(text=self._tr.t("btn_browser_import"))
         self._search_entry.configure(placeholder_text=self._tr.t("search_placeholder"))
         self._confirm_label.configure(text=self._tr.t("confirm_delete"))
         self._confirm_yes.configure(text=self._tr.t("yes"))
         self._confirm_no.configure(text=self._tr.t("no"))
         self._copy_small.configure(text=self._tr.t("copyright"))
         self._update_status_bar()
+        for child in self._form_frame.winfo_children():
+            if hasattr(child, "refresh_language"):
+                child.refresh_language()
 
     def _touch_sync(self) -> None:
         self._last_sync = datetime.now()
@@ -300,6 +313,35 @@ class MainWindow(ctk.CTkFrame):
     def _search(self) -> None:
         q = self._search_var.get().strip()
         self._reload_list(q if q else None)
+
+    def _browser_import(self) -> None:
+        """Открывает панель импорта паролей из CSV браузера."""
+        self._hide_confirm()
+        self._list_frame.pack_forget()
+        self._confirm_frame.pack_forget()
+        self._form_frame.pack(fill="both", expand=True)
+        for w in self._form_frame.winfo_children():
+            w.destroy()
+        panel = BrowserImportPanel(
+            self._form_frame,
+            self._db,
+            self._tr,
+            on_done=self._on_browser_import_done,
+            on_cancel=self._cancel_form,
+        )
+        panel.pack(fill="both", expand=True)
+
+    def _on_browser_import_done(self, imported: int, skipped_dup: int, skipped_invalid: int) -> None:
+        """Закрывает панель импорта и обновляет список после успешного импорта."""
+        msg = self._tr.t("browser_import_done").format(
+            i=imported,
+            d=skipped_dup,
+            e=skipped_invalid,
+        )
+        self._touch_sync()
+        self.set_status_message(msg, ok=True)
+        self._cancel_form()
+        self._reload_list(self._search_var.get().strip() or None)
 
     def _add(self) -> None:
         self._hide_confirm()

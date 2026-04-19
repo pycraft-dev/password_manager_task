@@ -14,10 +14,11 @@ a = Analysis(
     datas=[
         (str(ROOT / "assets" / "icon.ico"), "assets"),
         (str(ROOT / "assets" / "icon.png"), "assets"),
+        (str(ROOT / "assets" / "browser_icons"), "assets/browser_icons"),
         (str(ROOT / "translations.json"), "."),
         (str(ROOT / "VERSION"), "."),
     ],
-    hiddenimports=["PIL._tkinter_finder", "customtkinter"],
+    hiddenimports=["PIL._tkinter_finder", "customtkinter", "pyzipper"],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],

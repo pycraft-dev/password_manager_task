@@ -212,6 +212,13 @@ class PasswordDatabase:
         row = self._conn.execute("SELECT COUNT(*) AS c FROM entries").fetchone()
         return int(row["c"]) if row else 0
 
+    def existing_titles_lower(self) -> set[str]:
+        """Множество lower(title) для проверки дубликатов при импорте из браузера."""
+        return {
+            str(row["t"])
+            for row in self._conn.execute("SELECT lower(title) AS t FROM entries")
+        }
+
     def title_exists(self, title: str, exclude_id: int | None = None) -> bool:
         """Проверяет уникальность названия (без учёта регистра)."""
         t = title.strip().lower()

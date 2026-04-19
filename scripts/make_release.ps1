@@ -12,7 +12,7 @@ if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 $releaseDir = Join-Path $Root "release"
 New-Item -ItemType Directory -Force -Path $releaseDir | Out-Null
-$zipName = "PasswordManager-${ver}-win64.zip"
+$zipName = "PasswordManager-v${ver}-win64.zip"
 $zipPath = Join-Path $releaseDir $zipName
 if (Test-Path $zipPath) { Remove-Item $zipPath -Force }
 

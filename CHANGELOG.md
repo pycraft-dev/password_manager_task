@@ -2,11 +2,21 @@
 
 Формат основан на [Keep a Changelog](https://keepachangelog.com/ru/1.0.0/).
 
+## [2.0.0] — 2026-04-19
+
+### Добавлено
+
+- Импорт паролей из CSV экспорта браузеров (Chrome / Яндекс.Браузер / Edge / Opera — формат Chromium; Firefox).
+- Панель предпросмотра: фильтры (все / только новые / дубликаты), чекбоксы, прогресс и остановка импорта.
+- Парсер CSV (`src/utils/csv_parser.py`), валидация и модуль импорта (`src/core/importer.py`).
+- Тестовые CSV в `test_data/`, иконки браузеров в `assets/browser_icons/`.
+- Импорт из **ZIP** с паролем: извлекается первый CSV (приоритет имени с «password»); сначала ``zipfile``, при необходимости — ``pyzipper`` (AES).
+
 ## [1.0.1] — 2026-04-19
 
 ### Изменено
 
-- Название приложения без пометки «демо»; EXE и архив релиза: `PasswordManager.exe` / `PasswordManager-<версия>-win64.zip`.
+- Название приложения без пометки «демо»; EXE и архив релиза: `PasswordManager.exe` / `PasswordManager-v<версия>-win64.zip`.
 
 ## [1.0.0] — 2026-04-19
 
@@ -28,11 +38,20 @@
 
 ---
 
+## [2.0.0] — 2026-04-19 (EN)
+
+### Added
+
+- Import passwords from browser-exported CSV (Chromium format for Chrome / Yandex Browser / Edge / Opera; Firefox format).
+- Preview panel: filters, row selection, progress bar and cancel during import.
+- CSV parser, validation, importer module; sample CSV files and browser icons under `assets/browser_icons/`.
+- **ZIP** import with password (first CSV inside; prefers filenames containing `password`); tries stdlib `zipfile` first, then `pyzipper` for AES.
+
 ## [1.0.1] — 2026-04-19 (EN)
 
 ### Changed
 
-- Product name without “demo”; Windows binary `PasswordManager.exe`; release zip `PasswordManager-<version>-win64.zip`.
+- Product name without “demo”; Windows binary `PasswordManager.exe`; release zip `PasswordManager-v<version>-win64.zip`.
 
 ## [1.0.0] — 2026-04-19 (EN)
 

@@ -30,3 +30,14 @@ def get_icon_path() -> Path:
     if bundled.exists():
         return bundled
     return get_project_root() / "assets" / "icon.ico"
+
+
+def get_browser_icon_path(slug: str) -> Path:
+    """
+    Путь к PNG-иконке браузера (``chrome``, ``yandex``, ``firefox``, ``edge``, ``opera``).
+    """
+    name = f"{slug}.png"
+    bundled = get_bundle_root() / "assets" / "browser_icons" / name
+    if bundled.exists():
+        return bundled
+    return get_project_root() / "assets" / "browser_icons" / name
