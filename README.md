@@ -4,11 +4,19 @@
 
 ## Скриншоты / демо
 
-Плейсхолдеры: добавьте скриншоты в каталог `docs/screenshots/` и обновите ссылки при необходимости.
+Файлы лежат в [docs/screenshots/](docs/screenshots/).
 
-- `docs/screenshots/01-login.png` — экран мастер-пароля  
-- `docs/screenshots/02-main.png` — список записей  
-- `docs/screenshots/03-form.png` — форма записи и генератор  
+### Экран мастер-пароля
+
+![Экран входа с мастер-паролем](docs/screenshots/01-login.png)
+
+### Список записей
+
+![Главный экран со списком](docs/screenshots/02-main.png)
+
+### Форма записи и генератор
+
+![Форма записи и генератор пароля](docs/screenshots/03-form.png)
 
 <details>
 <summary>English version</summary>
@@ -19,7 +27,11 @@ A **CustomTkinter** desktop app with **AES-256-GCM** encryption, **SQLite** stor
 
 ## Screenshots / demo
 
-Add screenshots under `docs/screenshots/` and update links if needed.
+![Login](docs/screenshots/01-login.png)
+
+![Main list](docs/screenshots/02-main.png)
+
+![Record form](docs/screenshots/03-form.png)
 
 </details>
 
